@@ -28,6 +28,27 @@ Broad Commodities: Invesco DB Commodity Index Tracking Fund (DBC)<br>
 European Markets: Vanguard FTSE Europe ETF (VGK)<br>
 
 ## Risk Parity 
+The theory behind Risk Parity Optimization is to purchase securites such that each one contributes an equal amount of risk to the portfolio. This can be achieved generally by purchasing less of the more risky securities and vice versa. Or mathematically:
+
+![RC_i = RC_j \ \forall i,j](https://latex.codecogs.com/png.latex?\color{white}{RC_i%20%3D%20RC_j%20%5C%20%5Cforall%20i%2Cj})
+
+Where Risk Contribution (RC) = weight * risk<br>
+
+So with that, we impliment the simple algorithm in python, using scipy.minimize to minimize the difference in risk contribtution from each asset.<br>
+
+We find the following results:<br>
+Annualized Expected Portfolio Return: 4.57%<br>
+Annualized Portfolio Risk (Volatility): 6.87%<br>\
+This is an underwhelming result, but it is not suprising as we have some low volatility, low return securities in the portfolio which we would expect to get a lot of the capital distribution from this method.<br>
+
+Indeed we see below that over 50% of capital is in Gold and Corporate Bonds, as they have low risk profiles.
+The problem with this is that we don't expose ourselves to enough potential returns (in my opinion)
+![Risk Parity Weights](assets/rp_pie.png)
+
+Below are the cummulative returns of all the securities and the risk parity porfolio. I takeaway that this is a good strategy for someone who is quite risk averse, but still wants the benefits of diversification, rather than just buying, say, U.S. Treasuries. 
+![Risk Parity Returns](assets/rp_returns.png)
+
+I also think this would be an interesting method to apply to just the stock market, that way you could see some higher returns. For example instead of using the standard S&P 500 Index Fund, you could weight stocks according to risk parity.  
 
 ## Mean-Variance (Markowitz)
 
