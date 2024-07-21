@@ -28,6 +28,11 @@ Broad Commodities: Invesco DB Commodity Index Tracking Fund (DBC)<br>
 European Markets: Vanguard FTSE Europe ETF (VGK)<br>
 
 ## Risk Parity 
+The theory behind Risk Parity Optimization is to purchase securites such that each one contributes an equal amount of risk to the portfolio. This can be achieved generally by purchasing less of the more risky securities and vice versa. Or mathematically:
+
+![RC_i = RC_j \ \forall i,j](https://latex.codecogs.com/png.latex?RC_i%20%3D%20RC_j%20%5C%20%5Cforall%20i%2Cj)
+
+Where Risk Contribution (RC) = weight * risk 
 
 ## Mean-Variance (Markowitz)
 
