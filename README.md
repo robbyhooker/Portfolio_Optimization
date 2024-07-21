@@ -51,6 +51,22 @@ The theory behind Risk Parity Optimization is to purchase securites such that ea
 
 ![RC_i = RC_j \ \forall i,j](https://latex.codecogs.com/png.latex?\color{white}{RC_i%20%3D%20RC_j%20%5C%20%5Cforall%20i%2Cj})
 
+The portfolio volatility is given by:
+
+![\sigma_p = \sqrt{\mathbf{w}^T \Sigma \mathbf{w}}](https://latex.codecogs.com/png.latex?\color{white}sigma_p%20%3D%20%5Csqrt%7B%5Cmathbf%7Bw%7D%5ET%20%5CSigma%20%5Cmathbf%7Bw%7D%7D)
+
+### Marginal Risk Contribution
+
+The marginal risk contribution of asset \( i \) is the partial derivative of the portfolio volatility with respect to the weight of asset \( i \):
+
+![\frac{\partial \sigma_p}{\partial w_i} = \frac{(\Sigma \mathbf{w})_i}{\sigma_p}](https://latex.codecogs.com/png.latex?\color{white}frac{\partial%20\sigma_p}{\partial%20w_i}%20=%20\frac{(\Sigma%20\mathbf{w})_i}{\sigma_p})
+
+### Risk Contribution
+
+The risk contribution of asset \( i \) to the portfolio is:
+
+![RC_i = w_i \cdot \frac{(\Sigma \mathbf{w})_i}{\sigma_p}](https://latex.codecogs.com/png.latex?RC_i%20=%20w_i%20\cdot%20\color{white}frac{(\Sigma%20\mathbf{w})_i}{\sigma_p})
+
 Where Risk Contribution (RC) = weight * risk<br>
 
 So with that, we impliment the simple algorithm in python, using scipy.minimize to minimize the difference in risk contribtution from each asset.<br>
