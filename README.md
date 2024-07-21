@@ -51,7 +51,9 @@ The theory behind Risk Parity Optimization is to purchase securites such that ea
 
 ![RC_i = RC_j \ \forall i,j](https://latex.codecogs.com/png.latex?\color{white}{RC_i%20%3D%20RC_j%20%5C%20%5Cforall%20i%2Cj})
 
-Where: ![RC_i = \text{weight}_i \cdot \text{risk}_i](https://latex.codecogs.com/png.latex?RC_i%20=%20\text{weight}_i%20\cdot%20\text{risk}_i) 
+Where<br>
+
+![RC_i = \text{weight}_i \cdot \text{risk}_i](https://latex.codecogs.com/png.latex?\color{white}RC_i%20=%20\text{weight}_i%20\cdot%20\text{risk}_i) 
 
 So with that, we impliment the simple algorithm in python, using scipy.minimize to minimize the difference in risk contribtution from each asset.<br>
 
