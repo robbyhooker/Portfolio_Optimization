@@ -33,7 +33,8 @@ European Markets: Vanguard FTSE Europe ETF (VGK)<br>
 Before diving into the optimization methods I wanted to do some high level EDA on our Data<br>
 
 In the correlation chart below we see how our securities relate to eachother<br>
-The main observation here is that most of the securities have a positive correlation, except commodoties like USO, GLD, and DBC. Introducing such securities to the portfolio is theoretically good for the overall risk profile.<br>
+The main observation here is that most of the securities have a positive correlation, except commodoties like USO, GLD, and DBC.<br>
+Introducing such securities to the portfolio is theoretically good for the overall risk profile.<br>
 
 ![Securities Correlation Heatmap](assets/data_corr.png)
 
