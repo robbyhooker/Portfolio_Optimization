@@ -3,7 +3,7 @@
  
  ## Table of Contents
 
-1. [Securities](#securities)
+1. [Dataset](#dataset)
 2. [Exploratory Data Analysis](#exploratory-data-analysis)
 3. [Risk Parity](#risk-parity)
 4. [Mean-Variance (Markowitz)](#mean-variance-(markowitz))
@@ -12,9 +12,11 @@
 7. [Sharpe Max Ratio](#sharpe-max-ratio)
 8. [Future Work](#future-work)
 
-## Exploratory Data Analysis
+## Dataset
+In forming the list of control securties I wanted to ensure we diversify across asset classes such as stocks, bond, commodoties, real estate, etc. The simplest way to do so was to use ETFs such as SPY, which can represent asset classes.<br>
 
-## Securities
+The is daily adjusted closing prices for the securities below. It is collected from yahoo finance using the Python package 'yfinance' and ranges from 2010-01-01 to 2023-01-01.
+### Securities
 Large-Cap US Equity: SPDR S&P 500 ETF (SPY)<br>
 US Treasury Bonds: iShares 7-10 Year Treasury Bond ETF (IEF)<br>
 Corporate Bonds: iShares iBoxx $ Investment Grade Corporate Bond ETF (LQD)<br>
@@ -27,12 +29,31 @@ High Yield Bonds: iShares iBoxx $ High Yield Corporate Bond ETF (HYG)<br>
 Broad Commodities: Invesco DB Commodity Index Tracking Fund (DBC)<br>
 European Markets: Vanguard FTSE Europe ETF (VGK)<br>
 
+## Exploratory Data Analysis
+Before diving into the optimization methods I wanted to do some high level EDA on our Data<br>
+
+In the correlation chart below we see how our securities relate to eachother<br>
+The main observation here is that most of the securities have a positive correlation, except commodoties like USO, GLD, and DBC.<br>
+Introducing such securities to the portfolio is theoretically good for the overall risk profile.<br>
+
+![Securities Correlation Heatmap](assets/data_corr.png)
+
+We can also plot the prices of each security over the time frame to give insights into the risk and return profiles of them individually. For example below we see that SPY offers high returns in the period but is more volatile (relativley):<br>
+
+![Time Series of Security Prices](assets/time_series.png)
+
+Normalzing the prices improves chart readability:
+
+![Normalized Time Series of Security Prices](assets/normalized_tis.png)
+
 ## Risk Parity 
 The theory behind Risk Parity Optimization is to purchase securites such that each one contributes an equal amount of risk to the portfolio. This can be achieved generally by purchasing less of the more risky securities and vice versa. Or mathematically:
 
 ![RC_i = RC_j \ \forall i,j](https://latex.codecogs.com/png.latex?\color{white}{RC_i%20%3D%20RC_j%20%5C%20%5Cforall%20i%2Cj})
 
-Where Risk Contribution (RC) = weight * risk<br>
+Where<br>
+
+![RC_i = \text{weight}_i \cdot \text{risk}_i](https://latex.codecogs.com/png.latex?\color{white}RC_i%20=%20\text{weight}_i%20\cdot%20\text{risk}_i) 
 
 So with that, we impliment the simple algorithm in python, using scipy.minimize to minimize the difference in risk contribtution from each asset.<br>
 
@@ -41,16 +62,97 @@ Annualized Expected Portfolio Return: 4.57%<br>
 Annualized Portfolio Risk (Volatility): 6.87%<br>\
 This is an underwhelming result, but it is not suprising as we have some low volatility, low return securities in the portfolio which we would expect to get a lot of the capital distribution from this method.<br>
 
-Indeed we see below that over 50% of capital is in Gold and Corporate Bonds, as they have low risk profiles.
-The problem with this is that we don't expose ourselves to enough potential returns (in my opinion)
+Indeed we see below that over 50% of capital is in Government and Corporate Bonds, as they have low risk profiles.
+The problem with this is that we don't expose ourselves to enough potential returns (in my opinion)<br>
+
 ![Risk Parity Weights](assets/rp_pie.png)
 
-Below are the cummulative returns of all the securities and the risk parity porfolio. I takeaway that this is a good strategy for someone who is quite risk averse, but still wants the benefits of diversification, rather than just buying, say, U.S. Treasuries. 
+Below are the cummulative returns of all the securities and the risk parity porfolio. I takeaway that this is a good strategy for someone who is quite risk averse, but still wants the benefits of diversification, rather than just buying, say, U.S. Treasuries.<br>
+
 ![Risk Parity Returns](assets/rp_returns.png)
 
 I also think this would be an interesting method to apply to just the stock market, that way you could see some higher returns. For example instead of using the standard S&P 500 Index Fund, you could weight stocks according to risk parity.  
 
 ## Mean-Variance (Markowitz)
+| Portfolio             | ETF  | Weight (%) | Return | Volatility |
+|-----------------------|------|------------|--------|------------|
+| Highest Sharpe Ratio  | SPY  | 32.15      | 0.06   | 0.06       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 66.26      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 1.59       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 50          | SPY  | 0.00       | -0.03  | 0.28       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 22.69      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 77.31      |        |            |
+|                       | GLD  | 0.00       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 150         | SPY  | 0.00       | 0.00   | 0.11       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 69.00      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 31.00      |        |            |
+|                       | GLD  | 0.00       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 250         | SPY  | 7.95       | 0.04   | 0.05       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 66.52      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 0.00       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 21.45      |        |            |
+|                       | DBC  | 4.08       |        |            |
+| Portfolio 350         | SPY  | 46.54      | 0.07   | 0.08       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 50.94      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 2.52       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 460         | SPY  | 84.90      | 0.11   | 0.15       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 9.83       |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 5.27       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 500         | SPY  | 100.00     | 0.13   | 0.18       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 0.00       |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 0.00       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
 
 ## Genetic Algorithms
 
