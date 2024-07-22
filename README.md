@@ -62,7 +62,7 @@ Annualized Expected Portfolio Return: 4.57%<br>
 Annualized Portfolio Risk (Volatility): 6.87%<br>\
 This is an underwhelming result, but it is not suprising as we have some low volatility, low return securities in the portfolio which we would expect to get a lot of the capital distribution from this method.<br>
 
-Indeed we see below that over 50% of capital is in Gold and Corporate Bonds, as they have low risk profiles.
+Indeed we see below that over 50% of capital is in Government and Corporate Bonds, as they have low risk profiles.
 The problem with this is that we don't expose ourselves to enough potential returns (in my opinion)<br>
 
 ![Risk Parity Weights](assets/rp_pie.png)
