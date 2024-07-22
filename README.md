@@ -9,8 +9,7 @@
 4. [Mean-Variance](#mean-variance)
 5. [Genetic Algorithms](#genetic-algorithms)
 6. [Monte Carlo Simulation](#monte-carlo-simulation)
-7. [Sharpe Max Ratio](#sharpe-max-ratio)
-8. [Future Work](#future-work)
+7. [Future Work](#future-work)
 
 ## Dataset
 In forming the list of control securties I wanted to ensure we diversify across asset classes such as stocks, bond, commodoties, real estate, etc. The simplest way to do so was to use ETFs such as SPY, which can represent asset classes.<br>
@@ -100,7 +99,5 @@ I also think this would be an interesting method to apply to just the stock mark
 ## Genetic Algorithms
 
 ## Monte Carlo Simulation
-
-## Sharpe Max Ratio
 
 ## Future Work
