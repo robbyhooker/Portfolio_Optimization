@@ -89,9 +89,9 @@ I also think this would be an interesting method to apply to just the stock mark
 | Portfolio 350         | SPY  | 46.54      | 0.07   | 0.08       |
 |                       | IEF  | 50.94      |        |            |
 |                       | GLD  | 2.52       |        |            |
-| Portfolio 460         | SPY  | 84.90      | 0.11   | 0.15       |
-|                       | IEF  | 9.83       |        |            |
-|                       | GLD  | 5.27       |        |            |
+| Portfolio 450         | SPY  | 81.41      | 0.11   | 0.15       |
+|                       | IEF  | 13.58      |        |            |
+|                       | GLD  | 5.01       |        |            |
 | Portfolio 500         | SPY  | 100.00     | 0.13   | 0.18       |
 
 ![Efficient Portfolios Frontier](assets/mv_frontier.png)
