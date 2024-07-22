@@ -74,6 +74,85 @@ Below are the cummulative returns of all the securities and the risk parity porf
 I also think this would be an interesting method to apply to just the stock market, that way you could see some higher returns. For example instead of using the standard S&P 500 Index Fund, you could weight stocks according to risk parity.  
 
 ## Mean-Variance (Markowitz)
+| Portfolio             | ETF  | Weight (%) | Return | Volatility |
+|-----------------------|------|------------|--------|------------|
+| Highest Sharpe Ratio  | SPY  | 32.15      | 0.06   | 0.06       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 66.26      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 1.59       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 50          | SPY  | 0.00       | -0.03  | 0.28       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 22.69      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 77.31      |        |            |
+|                       | GLD  | 0.00       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 150         | SPY  | 0.00       | 0.00   | 0.11       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 69.00      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 31.00      |        |            |
+|                       | GLD  | 0.00       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 250         | SPY  | 7.95       | 0.04   | 0.05       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 66.52      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 0.00       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 21.45      |        |            |
+|                       | DBC  | 4.08       |        |            |
+| Portfolio 350         | SPY  | 46.54      | 0.07   | 0.08       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 50.94      |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 2.52       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 460         | SPY  | 84.90      | 0.11   | 0.15       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 9.83       |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 5.27       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
+| Portfolio 500         | SPY  | 100.00     | 0.13   | 0.18       |
+|                       | VGK  | 0.00       |        |            |
+|                       | IEF  | 0.00       |        |            |
+|                       | LQD  | 0.00       |        |            |
+|                       | USO  | 0.00       |        |            |
+|                       | GLD  | 0.00       |        |            |
+|                       | VNQ  | 0.00       |        |            |
+|                       | RWO  | 0.00       |        |            |
+|                       | IWM  | 0.00       |        |            |
+|                       | HYG  | 0.00       |        |            |
+|                       | DBC  | 0.00       |        |            |
 
 ## Genetic Algorithms
 
