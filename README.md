@@ -73,6 +73,22 @@ Below are the cummulative returns of all the securities and the risk parity porf
 I also think this would be an interesting method to apply to just the stock market, that way you could see some higher returns. For example instead of using the standard S&P 500 Index Fund, you could weight stocks according to risk parity.  
 
 ## Mean-Variance
+My reference for this method: [View Mean-Variance CAPM PDF](https://www.columbia.edu/~mh2078/FoundationsFE/MeanVariance-CAPM.pdf)
+
+In reading about Markowitz's mean-variance method and the CAPM model, I was able to gain the most intuition from the mathematical formulas and graphs, so I'll lean on those here.<br>
+
+Also note that I don't consider our list of securities to contain a risk-free asset.<br>
+We assume the we have n risky assets which make up the return vector 𝑅<br> 
+We also assume that 𝑅 follows a Multivariate Normal distribution with mean vector 𝜇 covariance matrix 𝛴.
+
+The mean-variance portfolio optimization problem is formulated as:
+
+![Budget Contraint](assets/constraint.png)<br>
+(Taken from above lecture notes)<br>
+
+In english, this lays out the optmization problem as trying to find the weights (w) that produce the minimum risk (portfolio variance), given a target return (p)<br>
+We also set constraints in implemtation: The sum of the weights is equal to 1 (all capital is invested) and each weight ∈ [0,1] (no options or leveraging)
+
 | Portfolio             | ETF  | Weight (%) | Return | Volatility |
 |-----------------------|------|------------|--------|------------|
 | Highest Sharpe Ratio  | SPY  | 32.15      | 0.06   | 0.06       |
