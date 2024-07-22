@@ -6,11 +6,10 @@
 1. [Dataset](#dataset)
 2. [Exploratory Data Analysis](#exploratory-data-analysis)
 3. [Risk Parity](#risk-parity)
-4. [Mean-Variance (Markowitz)](#mean-variance-(markowitz))
+4. [Mean-Variance](#mean-variance)
 5. [Genetic Algorithms](#genetic-algorithms)
 6. [Monte Carlo Simulation](#monte-carlo-simulation)
-7. [Sharpe Max Ratio](#sharpe-max-ratio)
-8. [Future Work](#future-work)
+7. [Future Work](#future-work)
 
 ## Dataset
 In forming the list of control securties I wanted to ensure we diversify across asset classes such as stocks, bond, commodoties, real estate, etc. The simplest way to do so was to use ETFs such as SPY, which can represent asset classes.<br>
@@ -73,91 +72,48 @@ Below are the cummulative returns of all the securities and the risk parity porf
 
 I also think this would be an interesting method to apply to just the stock market, that way you could see some higher returns. For example instead of using the standard S&P 500 Index Fund, you could weight stocks according to risk parity.  
 
-## Mean-Variance (Markowitz)
+## Mean-Variance
+My reference for this method: [View Mean-Variance CAPM PDF](https://www.columbia.edu/~mh2078/FoundationsFE/MeanVariance-CAPM.pdf)
+
+In reading about Markowitz's mean-variance method and the CAPM model, I was able to gain the most intuition from the mathematical formulas and graphs, so I'll lean on those here.<br>
+
+Also note that I don't consider our list of securities to contain a risk-free asset.<br>
+We assume the we have n risky assets which make up the return vector 𝑅<br> 
+We also assume that 𝑅 follows a Multivariate Normal distribution with mean vector 𝜇 covariance matrix 𝛴.
+
+The mean-variance portfolio optimization problem is formulated as:
+
+![Budget Contraint](assets/constraint.png)<br>
+(Taken from above lecture notes)<br>
+
+In english, this lays out the optmization problem as trying to find the weights (w) that produce the minimum risk (portfolio variance), given a target return (p)<br>
+We also set constraints in implemtation: The sum of the weights is equal to 1 (all capital is invested) and each weight ∈ [0,1] (no options or leveraging)
+
 | Portfolio             | ETF  | Weight (%) | Return | Volatility |
 |-----------------------|------|------------|--------|------------|
 | Highest Sharpe Ratio  | SPY  | 32.15      | 0.06   | 0.06       |
-|                       | VGK  | 0.00       |        |            |
 |                       | IEF  | 66.26      |        |            |
-|                       | LQD  | 0.00       |        |            |
-|                       | USO  | 0.00       |        |            |
 |                       | GLD  | 1.59       |        |            |
-|                       | VNQ  | 0.00       |        |            |
-|                       | RWO  | 0.00       |        |            |
-|                       | IWM  | 0.00       |        |            |
-|                       | HYG  | 0.00       |        |            |
-|                       | DBC  | 0.00       |        |            |
-| Portfolio 50          | SPY  | 0.00       | -0.03  | 0.28       |
-|                       | VGK  | 0.00       |        |            |
-|                       | IEF  | 22.69      |        |            |
-|                       | LQD  | 0.00       |        |            |
+| Portfolio 50          | IEF  | 22.69      | -0.03  | 0.28       |
 |                       | USO  | 77.31      |        |            |
-|                       | GLD  | 0.00       |        |            |
-|                       | VNQ  | 0.00       |        |            |
-|                       | RWO  | 0.00       |        |            |
-|                       | IWM  | 0.00       |        |            |
-|                       | HYG  | 0.00       |        |            |
-|                       | DBC  | 0.00       |        |            |
-| Portfolio 150         | SPY  | 0.00       | 0.00   | 0.11       |
-|                       | VGK  | 0.00       |        |            |
-|                       | IEF  | 69.00      |        |            |
-|                       | LQD  | 0.00       |        |            |
+| Portfolio 150         | IEF  | 69.00      | 0.00   | 0.11       |
 |                       | USO  | 31.00      |        |            |
-|                       | GLD  | 0.00       |        |            |
-|                       | VNQ  | 0.00       |        |            |
-|                       | RWO  | 0.00       |        |            |
-|                       | IWM  | 0.00       |        |            |
-|                       | HYG  | 0.00       |        |            |
-|                       | DBC  | 0.00       |        |            |
 | Portfolio 250         | SPY  | 7.95       | 0.04   | 0.05       |
-|                       | VGK  | 0.00       |        |            |
 |                       | IEF  | 66.52      |        |            |
-|                       | LQD  | 0.00       |        |            |
-|                       | USO  | 0.00       |        |            |
-|                       | GLD  | 0.00       |        |            |
-|                       | VNQ  | 0.00       |        |            |
-|                       | RWO  | 0.00       |        |            |
-|                       | IWM  | 0.00       |        |            |
 |                       | HYG  | 21.45      |        |            |
 |                       | DBC  | 4.08       |        |            |
 | Portfolio 350         | SPY  | 46.54      | 0.07   | 0.08       |
-|                       | VGK  | 0.00       |        |            |
 |                       | IEF  | 50.94      |        |            |
-|                       | LQD  | 0.00       |        |            |
-|                       | USO  | 0.00       |        |            |
 |                       | GLD  | 2.52       |        |            |
-|                       | VNQ  | 0.00       |        |            |
-|                       | RWO  | 0.00       |        |            |
-|                       | IWM  | 0.00       |        |            |
-|                       | HYG  | 0.00       |        |            |
-|                       | DBC  | 0.00       |        |            |
-| Portfolio 460         | SPY  | 84.90      | 0.11   | 0.15       |
-|                       | VGK  | 0.00       |        |            |
-|                       | IEF  | 9.83       |        |            |
-|                       | LQD  | 0.00       |        |            |
-|                       | USO  | 0.00       |        |            |
-|                       | GLD  | 5.27       |        |            |
-|                       | VNQ  | 0.00       |        |            |
-|                       | RWO  | 0.00       |        |            |
-|                       | IWM  | 0.00       |        |            |
-|                       | HYG  | 0.00       |        |            |
-|                       | DBC  | 0.00       |        |            |
+| Portfolio 450         | SPY  | 81.41      | 0.11   | 0.15       |
+|                       | IEF  | 13.58      |        |            |
+|                       | GLD  | 5.01       |        |            |
 | Portfolio 500         | SPY  | 100.00     | 0.13   | 0.18       |
-|                       | VGK  | 0.00       |        |            |
-|                       | IEF  | 0.00       |        |            |
-|                       | LQD  | 0.00       |        |            |
-|                       | USO  | 0.00       |        |            |
-|                       | GLD  | 0.00       |        |            |
-|                       | VNQ  | 0.00       |        |            |
-|                       | RWO  | 0.00       |        |            |
-|                       | IWM  | 0.00       |        |            |
-|                       | HYG  | 0.00       |        |            |
-|                       | DBC  | 0.00       |        |            |
+
+![Efficient Portfolios Frontier](assets/mv_frontier.png)
 
 ## Genetic Algorithms
 
 ## Monte Carlo Simulation
-
-## Sharpe Max Ratio
 
 ## Future Work
