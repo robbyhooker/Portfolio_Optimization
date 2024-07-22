@@ -83,7 +83,7 @@ We also assume that 𝑅 follows a Multivariate Normal distribution with mean ve
 
 The mean-variance portfolio optimization problem is formulated as:
 
-![Budget Contraint](assets/constraint.png)<br>
+![Budget Contraint](assets/contraint.png)<br>
 (Taken from above lecture notes)<br>
 
 In english, this lays out the optmization problem as trying to find the weights (w) that produce the minimum risk (portfolio variance), given a target return (p)<br>
