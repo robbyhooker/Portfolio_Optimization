@@ -6,7 +6,7 @@
 1. [Dataset](#dataset)
 2. [Exploratory Data Analysis](#exploratory-data-analysis)
 3. [Risk Parity](#risk-parity)
-4. [Mean-Variance (Markowitz)](#mean-variance-(markowitz))
+4. [Mean-Variance](#mean-variance)
 5. [Genetic Algorithms](#genetic-algorithms)
 6. [Monte Carlo Simulation](#monte-carlo-simulation)
 7. [Sharpe Max Ratio](#sharpe-max-ratio)
@@ -73,7 +73,7 @@ Below are the cummulative returns of all the securities and the risk parity porf
 
 I also think this would be an interesting method to apply to just the stock market, that way you could see some higher returns. For example instead of using the standard S&P 500 Index Fund, you could weight stocks according to risk parity.  
 
-## Mean-Variance (Markowitz)
+## Mean-Variance
 | Portfolio             | ETF  | Weight (%) | Return | Volatility |
 |-----------------------|------|------------|--------|------------|
 | Highest Sharpe Ratio  | SPY  | 32.15      | 0.06   | 0.06       |
