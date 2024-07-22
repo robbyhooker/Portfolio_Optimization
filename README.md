@@ -79,11 +79,9 @@ I also think this would be an interesting method to apply to just the stock mark
 | Highest Sharpe Ratio  | SPY  | 32.15      | 0.06   | 0.06       |
 |                       | IEF  | 66.26      |        |            |
 |                       | GLD  | 1.59       |        |            |
-| Portfolio 50          | SPY  | 0.00       | -0.03  | 0.28       |
-|                       | IEF  | 22.69      |        |            |
+| Portfolio 50          | IEF  | 22.69      | -0.03  | 0.28       |
 |                       | USO  | 77.31      |        |            |
-| Portfolio 150         | SPY  | 0.00       | 0.00   | 0.11       |
-|                       | IEF  | 69.00      |        |            |
+| Portfolio 150         | IEF  | 69.00      | 0.00   | 0.11       |
 |                       | USO  | 31.00      |        |            |
 | Portfolio 250         | SPY  | 7.95       | 0.04   | 0.05       |
 |                       | IEF  | 66.52      |        |            |
