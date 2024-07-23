@@ -87,8 +87,12 @@ The mean-variance portfolio optimization problem is formulated as:
 (Taken from above lecture notes)<br>
 
 In english, this lays out the optmization problem as trying to find the weights (w) that produce the minimum risk (portfolio variance), given a target return (p)<br>
-We also set constraints in implemtation: The sum of the weights is equal to 1 (all capital is invested) and each weight ∈ [0,1] (no options or leveraging)
+We also set constraints in implemtation: The sum of the weights is equal to 1 (all capital is invested) and each weight ∈ [0,1] (no options or leveraging)<br>
 
+Given this, upon implimentation we can give the algorithm a target return rate and output the portfolio with the lowest risk.<br>
+Using this, I derive both the portfolio with the highest Sharpe ratio, and the efficient portfolios frontier for our assets.<br>
+
+In the below table are data for various porfolios across the efficient frontier. Note that securities not listed are weighted at 0.<br>
 | Portfolio             | ETF  | Weight (%) | Return | Volatility |
 |-----------------------|------|------------|--------|------------|
 | Highest Sharpe Ratio  | SPY  | 32.15      | 0.06   | 0.06       |
@@ -109,6 +113,13 @@ We also set constraints in implemtation: The sum of the weights is equal to 1 (a
 |                       | IEF  | 13.58      |        |            |
 |                       | GLD  | 5.01       |        |            |
 | Portfolio 500         | SPY  | 100.00     | 0.13   | 0.18       |
+
+My take away from this is that the mean variance algorithm is more flexible for investors than risk parity (above).<br>
+We see that higher return portfolios are weighted in favor of riskier assets, with the most extreme example being all capital invested in SPY, which had the highest mean returns of all securities at hand.<br>
+So, even though the max Sharpe ratio may suggest the investor to be less risky, there are alternative suggestions for someone looking for more return.  
+
+The efficient portfolio frontier shows the entire spectrum of efficient portfolios, it follows that with higher returns come higher risk<br>
+Finally, I draw a line at the minimum risk, as all portfolios below it would not be invested in by a rational person (they can gain higher returns for the same risk).<br>
 
 ![Efficient Portfolios Frontier](assets/mv_frontier.png)
 
