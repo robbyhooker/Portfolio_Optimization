@@ -144,4 +144,13 @@ where:
 𝑓𝑖 is the fitness of individual 𝑖<br>
 𝑁 is the total number of individuals in the population.<br>
 
+Portfolios selected by their probability will then proceed into crossover<br>
+In this we simulate reproduction by combining the weights of two parent portfolios around some random pivot index<br>
+Each 'couple' will produce two 'children' consisting of their weights arrays before and after the pivot index.<br>
+
+We also introduce mutation with a mutation rate of 0.01<br>
+Individuals will be selected for mutation at random based on this rate, and have one of their weights altered randomly. 
+
+So, 
+
 ## Future Work
