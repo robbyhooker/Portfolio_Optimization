@@ -176,7 +176,6 @@ We expect to see the fitness increase of the course of generations, thus generat
 |---------------|--------|
 | Return        | 0.0854 |
 | Volatility    | 0.1001 |
-| Sharpe Ratio  | 0.8532 |
 
 Below is the weights in a bar chart:<br>
 
@@ -186,15 +185,11 @@ We also see that that fitness trends upwards over generations, indicating our al
 
 ![Genetic Evolution](assets/genetic_evolution.png)
 
+An interesting note on this algorithm is that each run outputs a different set of weights.<br>
+Because of the random nature, and the fact that we aren't quite acheiving the max Sharpe ratio, there is much variability in returns and risk from run to run.<br>
+This makes me wonder how finance professionals would actually impliment the algorithm, and how they would finally select a porfolio.<br>
+
 ## Future Work
-
-### Diversifying Optimization Strategies
-
-While the current implementation covers several robust optimization methods (Risk Parity, Mean-Variance, Genetic Algorithms, and Monte Carlo Simulation), there are other advanced strategies worth exploring:
-
-1. **Black-Litterman Model**: This model incorporates investor views and market equilibrium, potentially providing more robust portfolio allocations.
-2. **Robust Optimization**: This method deals with uncertainty in the input parameters, which is crucial in real-world applications where data is often noisy or incomplete.
-3. **Machine Learning Approaches**: Techniques such as reinforcement learning could be applied to dynamically adjust portfolio allocations based on changing market conditions.
 
 ### Expanding the Dataset
 
@@ -209,24 +204,7 @@ The current dataset spans from 2010-01-01 to 2023-01-01 and includes a diverse s
 To make the portfolio optimization more applicable to real-world scenarios, future work should consider:
 
 1. **Transaction Costs**: Including transaction costs and other fees in the optimization process to better simulate real trading environments.
-2. **Liquidity Constraints**: Ensuring that the portfolio allocations are realistic by considering the liquidity of the assets.
-3. **Regulatory Requirements**: Adhering to regulatory constraints, such as diversification rules and leverage limits, which might affect institutional investors.
-
-### Enhanced Visualizations and Reporting
-
-Improving the way results are presented can make the insights more accessible and actionable:
-
-1. **Interactive Dashboards**: Creating interactive dashboards to allow users to explore the data and results dynamically.
-2. **Scenario Analysis**: Implementing scenario analysis to show how portfolios perform under different market conditions.
-3. **Automated Reporting**: Generating automated reports summarizing the key findings, performance metrics, and recommendations.
-
-### Algorithmic Improvements
-
-Optimizing the existing algorithms and exploring new variations can lead to better performance:
-
-1. **Parameter Tuning**: Systematically tuning the parameters of the genetic algorithm and other methods to find the optimal settings.
-2. **Hybrid Methods**: Combining different optimization techniques to leverage their respective strengths.
-3. **Parallel Computing**: Utilizing parallel computing to speed up the optimization process, especially for computationally intensive methods like genetic algorithms.
+2. **Regulatory Requirements**: Adhering to regulatory constraints, such as diversification rules and leverage limits, which might affect institutional investors.
 
 ### Application to Different Markets
 
@@ -235,6 +213,3 @@ Applying the methods to different markets and asset classes can provide a broade
 1. **Global Markets**: Expanding the analysis to include global markets and different asset classes such as emerging markets, commodities, and currencies.
 2. **Sector-Specific Analysis**: Performing sector-specific optimizations to understand how these methods work in different industry sectors.
 3. **Alternative Investments**: Including alternative investments such as private equity, hedge funds, and real estate in the portfolio optimization process.
-
-By addressing these areas in future work, the robustness, applicability, and comprehensiveness of the portfolio optimization strategies can be significantly enhanced, making the findings more valuable to a wider range of investors.
-
