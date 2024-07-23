@@ -1,4 +1,4 @@
-# Portfolio_Optimization
+# Portfolio Optimization
  Exploring different portfolio optimization methods on a control set of securities
  
  ## Table of Contents
@@ -83,12 +83,16 @@ We also assume that 𝑅 follows a Multivariate Normal distribution with mean ve
 
 The mean-variance portfolio optimization problem is formulated as:
 
-![Budget Contraint](assets/constraint.png)<br>
+![Budget Contraint](assets/contraint.png)<br>
 (Taken from above lecture notes)<br>
 
 In english, this lays out the optmization problem as trying to find the weights (w) that produce the minimum risk (portfolio variance), given a target return (p)<br>
-We also set constraints in implemtation: The sum of the weights is equal to 1 (all capital is invested) and each weight ∈ [0,1] (no options or leveraging)
+We also set constraints in implemtation: The sum of the weights is equal to 1 (all capital is invested) and each weight ∈ [0,1] (no options or leveraging)<br>
 
+Given this, upon implimentation we can give the algorithm a target return rate and output the portfolio with the lowest risk.<br>
+Using this, I derive both the portfolio with the highest Sharpe ratio, and the efficient portfolios frontier for our assets.<br>
+
+In the below table are data for various porfolios across the efficient frontier. Note that securities not listed are weighted at 0.<br>
 | Portfolio             | ETF  | Weight (%) | Return | Volatility |
 |-----------------------|------|------------|--------|------------|
 | Highest Sharpe Ratio  | SPY  | 32.15      | 0.06   | 0.06       |
@@ -110,10 +114,76 @@ We also set constraints in implemtation: The sum of the weights is equal to 1 (a
 |                       | GLD  | 5.01       |        |            |
 | Portfolio 500         | SPY  | 100.00     | 0.13   | 0.18       |
 
+My take away from this is that the mean variance algorithm is more flexible for investors than risk parity (above).<br>
+We see that higher return portfolios are weighted in favor of riskier assets, with the most extreme example being all capital invested in SPY, which had the highest mean returns of all securities at hand.<br>
+So, even though the max Sharpe ratio may suggest the investor to be less risky, there are alternative suggestions for someone looking for more return.  
+
+The efficient portfolio frontier shows the entire spectrum of efficient portfolios, it follows that with higher returns come higher risk<br>
+Finally, I draw a line at the minimum risk, as all portfolios below it would not be invested in by a rational person (they can gain higher returns for the same risk).<br>
+
 ![Efficient Portfolios Frontier](assets/mv_frontier.png)
 
 ## Genetic Algorithms
+Reference for genetic algorithms: [View Mean-Variance CAPM PDF](chrome-extension://bdfcnmeidppjeaggnmidamkiddifkdib/viewer.html?file=https://www.graham-kendall.com/papers/sgk2005.pdf)
 
-## Monte Carlo Simulation
+Genetic algorithms, generally, are meant to replicate evolutionary biology and natural seleciton
+
+In our case, we'll impliment them to optimize a portfolio of securites
+
+### Algorithm Description
+First, we initialize a population of n portfolios with random weights<br>
+Over m generations we create new populations based off prior portfolios with the highest level of fit<br>
+In this case, fitness is determined by maximizing the Sharpe ratio, as used in the mean-variance optimization<br>
+Portfolios in a given population with higher levels of fit will be assigned higher probabilities of 'reproduction':<br>
+
+![Fitness Probabilty](assets/prob_fitness.png)
+
+where:
+
+𝑃𝑖 is the selection probability of individual 𝑖<br>
+𝑓𝑖 is the fitness of individual 𝑖<br>
+𝑁 is the total number of individuals in the population.<br>
+
+Portfolios selected by their probability will then proceed into crossover<br>
+In this we simulate reproduction by combining the weights of two parent portfolios around some random pivot index<br>
+Each 'couple' will produce two 'children' consisting of their weights arrays before and after the pivot index.<br>
+
+We also introduce mutation with a mutation rate of 0.01<br>
+Individuals will be selected for mutation at random based on this rate, and have one of their weights altered randomly. 
+
+So, with this we initialize `population_size`=200 and `num_generations`=10000, and run the algorithm<br>
+We expect to see the fitness increase of the course of generations, thus generating a better portfolio.<br>
+
+#### Optimal Portfolio Weights
+
+| ETF  | Weight (%) |
+|------|------------|
+| SPY  | 54.28      |
+| VGK  | 0.00       |
+| IEF  | 30.37      |
+| LQD  | 3.05       |
+| USO  | 0.02       |
+| GLD  | 2.80       |
+| VNQ  | 0.53       |
+| RWO  | 0.05       |
+| IWM  | 0.35       |
+| HYG  | 8.53       |
+| DBC  | 0.00       |
+
+#### Final Portfolio Performance
+
+| Metric        | Value  |
+|---------------|--------|
+| Return        | 0.0854 |
+| Volatility    | 0.1001 |
+| Sharpe Ratio  | 0.8532 |
+
+Below is the weights in a bar chart:<br>
+
+![Genetic Weights](assets/genetic_weights.png)
+
+We also see that that fitness trends upwards over generations, indicating our algorithm is working correctly. 
+
+![Genetic Evolution](assets/genetic_evolution.png)
 
 ## Future Work
