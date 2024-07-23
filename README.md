@@ -186,8 +186,9 @@ We also see that that fitness trends upwards over generations, indicating our al
 ![Genetic Evolution](assets/genetic_evolution.png)
 
 An interesting note on this algorithm is that each run outputs a different set of weights.<br>
-Because of the random nature, and the fact that we aren't quite acheiving the max Sharpe ratio, there is much variability in returns and risk from run to run.<br>
-This makes me wonder how finance professionals would actually impliment the algorithm, and how they would finally select a porfolio.<br>
+Because of the random nature, and the fact that we aren't quite acheiving the max Sharpe ratio.<br>
+This leads to much variability in returns and risk from run to run.<br>
+Which makes me wonder, how would finance professionals would actually impliment the algorithm, and how they would finally select a porfolio?<br>
 
 ## Future Work
 
