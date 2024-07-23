@@ -124,7 +124,24 @@ Finally, I draw a line at the minimum risk, as all portfolios below it would not
 ![Efficient Portfolios Frontier](assets/mv_frontier.png)
 
 ## Genetic Algorithms
+Reference for genetic algorithms: [View Mean-Variance CAPM PDF](chrome-extension://bdfcnmeidppjeaggnmidamkiddifkdib/viewer.html?file=https://www.graham-kendall.com/papers/sgk2005.pdf)
 
-## Monte Carlo Simulation
+Genetic algorithms, generally, are meant to replicate evolutionary biology and natural seleciton
+
+In our case, we'll impliment them to optimize a portfolio of securites
+
+### Algorithm Description
+First, we initialize a population of n portfolios with random weights<br>
+Over m generations we create new populations based off prior portfolios with the highest level of fit<br>
+In this case, fitness is determined by maximizing the Sharpe ratio, as used in the mean-variance optimization<br>
+Portfolios in a given population with higher levels of fit will be assigned higher probabilities of 'reproduction':<br>
+
+![Fitness Probabilty](assets/prob_fitness.png)
+
+where:
+
+𝑃𝑖 is the selection probability of individual 𝑖<br>
+𝑓𝑖 is the fitness of individual 𝑖<br>
+𝑁 is the total number of individuals in the population.<br>
 
 ## Future Work
