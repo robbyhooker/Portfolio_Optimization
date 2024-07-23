@@ -1,4 +1,4 @@
-# Portfolio_Optimization
+# Portfolio Optimization
  Exploring different portfolio optimization methods on a control set of securities
  
  ## Table of Contents
