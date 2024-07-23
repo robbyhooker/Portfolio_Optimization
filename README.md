@@ -151,6 +151,39 @@ Each 'couple' will produce two 'children' consisting of their weights arrays bef
 We also introduce mutation with a mutation rate of 0.01<br>
 Individuals will be selected for mutation at random based on this rate, and have one of their weights altered randomly. 
 
-So, 
+So, with this we initialize `population_size`=200 and `num_generations`=10000, and run the algorithm<br>
+We expect to see the fitness increase of the course of generations, thus generating a better portfolio.<br>
+
+#### Optimal Portfolio Weights
+
+| ETF  | Weight (%) |
+|------|------------|
+| SPY  | 54.28      |
+| VGK  | 0.00       |
+| IEF  | 30.37      |
+| LQD  | 3.05       |
+| USO  | 0.02       |
+| GLD  | 2.80       |
+| VNQ  | 0.53       |
+| RWO  | 0.05       |
+| IWM  | 0.35       |
+| HYG  | 8.53       |
+| DBC  | 0.00       |
+
+#### Final Portfolio Performance
+
+| Metric        | Value  |
+|---------------|--------|
+| Return        | 0.0854 |
+| Volatility    | 0.1001 |
+| Sharpe Ratio  | 0.8532 |
+
+Below is the weights in a bar chart:<br>
+
+![Genetic Weights](assets/genetic_weights.png)
+
+We also see that that fitness trends upwards over generations, indicating our algorithm is working correctly. 
+
+![Genetic Evolution](assets/genetic_evolution.png)
 
 ## Future Work
